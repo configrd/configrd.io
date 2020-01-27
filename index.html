@@ -26,9 +26,14 @@
     <script>
       
       $(document).ready(function(){
+        var videobutton = $('.video-section__placeholder');
         var frame = $('iframe');
         var src = frame.attr('src');
-        setTimeout(function(){ frame.attr('src', src+'?autoplay=1'); }, 10000);
+        setTimeout(function(){
+          videobutton.removeClass('video-section__placeholder--shown');
+          frame.attr('src', src+'?autoplay=1');
+          
+        }, 10000);
       });
     </script>
     
@@ -123,8 +128,14 @@
 
             
           <div class="col-md-6">
-            <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/ML4IKbKkeKQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-section">
+              <div class="video-section__placeholder video-section__placeholder--shown">
+                <div class="poster"></div>
+                <button class="btn btn-circle btn-lg btn-danger"><i class="fa fa-play"></i></button>
+              </div>
+              <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ML4IKbKkeKQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
@@ -300,5 +311,17 @@
       </div>
     </footer>
 
+    
+    <script src="assets/js/page.min.js"></script>
+    
+    <script>
+      //$(document).ready(function(){
+      //  
+      //  setTimeout(function() {
+      //      //body.removeClass('btn-circle');
+      //      $('.asd btn').removeClass('btn-circle');
+      //  }, 10000);
+      //});
+    </script>
   </body>
 </html>
